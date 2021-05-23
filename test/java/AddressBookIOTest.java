@@ -7,7 +7,7 @@ import java.util.List;
 public class AddressBookIOTest {
 
     @Test
-    public void givenCSV_FileWhenRead_ShouldReturnTrue() throws IOException{
+    public void givenCSV_FileWhenRead_ShouldReturnTrue() throws IOException {
         AddressBookFileIO addressBookFileIO = new AddressBookFileIO();
         boolean result = addressBookFileIO.readDataFromCSVFile();
         Assertions.assertTrue(result);
@@ -18,8 +18,8 @@ public class AddressBookIOTest {
         ArrayList<String[]> contacts = new ArrayList<>();
         String[] contact1 = {"Kalpesh", "dha", "mum", "pan", "Mah", "523001", "8106261925", "lkjk388@gmail.com"};
         contacts.add(contact1);
-        AddressBookFileIO opencsv=new AddressBookFileIO();
-        boolean result = opencsv.writeIntoCSVFile(contacts);
+        AddressBookFileIO addressBookFileIO = new AddressBookFileIO();
+        boolean result = addressBookFileIO.writeIntoCSVFile(contacts);
         Assertions.assertTrue(result);
     }
 
@@ -27,16 +27,16 @@ public class AddressBookIOTest {
     public void givenJsonFile_WhenWrite_ShouldReturnTrue() {
         AddressBookFileIO addressBookFileIO = new AddressBookFileIO();
         List<Contact> contactList = new ArrayList<>();
-        Contact contact1 = new Contact("Kalpesh", "dha", "mum", "pan", "Mah", "523001", "8106261925", "lkjk388@gmail.com");
+        Contact contact1 = new Contact("Kalpesh", "dha", "mum", "pan", "Mah", "52300", "8106261925", "lkjk388@gmail.com");
         contactList.add(contact1);
-        boolean b = addressBookFileIO.writeIntoJsonFile(contactList);
-        Assertions.assertTrue(b);
+        boolean result = addressBookFileIO.writeIntoJsonFile(contactList);
+        Assertions.assertTrue(result);
     }
 
     @Test
     public void givenJsonFile_WhenRead_ShouldReturnTrue() {
         AddressBookFileIO addressBookFileIO = new AddressBookFileIO();
-        boolean b = addressBookFileIO.readIntoJsonFile();
-        Assertions.assertTrue(b);
+        boolean result = addressBookFileIO.readIntoJsonFile();
+        Assertions.assertTrue(result);
     }
 }
